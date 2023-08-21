@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D24AAD722A92C751008E6F5D /* BeerkipediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24AAD712A92C751008E6F5D /* BeerkipediaApp.swift */; };
-		D24AAD742A92C751008E6F5D /* BeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24AAD732A92C751008E6F5D /* BeerListView.swift */; };
 		D24AAD762A92C751008E6F5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D24AAD752A92C751008E6F5D /* Assets.xcassets */; };
 		D24AAD792A92C751008E6F5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D24AAD782A92C751008E6F5D /* Preview Assets.xcassets */; };
 		D24AAD832A92C751008E6F5D /* BeerkipediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24AAD822A92C751008E6F5D /* BeerkipediaTests.swift */; };
@@ -18,6 +17,7 @@
 		D24AAD9F2A92C83A008E6F5D /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24AAD9E2A92C83A008E6F5D /* NetworkModel.swift */; };
 		D24AADA22A92C876008E6F5D /* BeerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24AADA12A92C876008E6F5D /* BeerListViewModel.swift */; };
 		D24AADA42A92CA90008E6F5D /* BeerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24AADA32A92CA90008E6F5D /* BeerRowView.swift */; };
+		D2E4E14E2A93DB8A0088C077 /* BeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E4E14D2A93DB8A0088C077 /* BeerListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 /* Begin PBXFileReference section */
 		D24AAD6E2A92C751008E6F5D /* Beerkipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beerkipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24AAD712A92C751008E6F5D /* BeerkipediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerkipediaApp.swift; sourceTree = "<group>"; };
-		D24AAD732A92C751008E6F5D /* BeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListView.swift; sourceTree = "<group>"; };
 		D24AAD752A92C751008E6F5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D24AAD782A92C751008E6F5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D24AAD7E2A92C751008E6F5D /* BeerkipediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeerkipediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +51,7 @@
 		D24AAD9E2A92C83A008E6F5D /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		D24AADA12A92C876008E6F5D /* BeerListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerListViewModel.swift; sourceTree = "<group>"; };
 		D24AADA32A92CA90008E6F5D /* BeerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRowView.swift; sourceTree = "<group>"; };
+		D2E4E14D2A93DB8A0088C077 /* BeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,6 @@
 				D24AAD9B2A92C80B008E6F5D /* Models */,
 				D24AADA02A92C85A008E6F5D /* BeerList */,
 				D24AADA52A92D69A008E6F5D /* Detail */,
-				D24AAD732A92C751008E6F5D /* BeerListView.swift */,
 				D24AAD752A92C751008E6F5D /* Assets.xcassets */,
 				D24AAD772A92C751008E6F5D /* Preview Content */,
 			);
@@ -150,8 +149,9 @@
 		D24AADA02A92C85A008E6F5D /* BeerList */ = {
 			isa = PBXGroup;
 			children = (
-				D24AADA12A92C876008E6F5D /* BeerListViewModel.swift */,
 				D24AADA32A92CA90008E6F5D /* BeerRowView.swift */,
+				D24AADA12A92C876008E6F5D /* BeerListViewModel.swift */,
+				D2E4E14D2A93DB8A0088C077 /* BeerListView.swift */,
 			);
 			path = BeerList;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D24AAD9F2A92C83A008E6F5D /* NetworkModel.swift in Sources */,
-				D24AAD742A92C751008E6F5D /* BeerListView.swift in Sources */,
 				D24AAD722A92C751008E6F5D /* BeerkipediaApp.swift in Sources */,
 				D24AADA42A92CA90008E6F5D /* BeerRowView.swift in Sources */,
+				D2E4E14E2A93DB8A0088C077 /* BeerListView.swift in Sources */,
 				D24AAD9D2A92C819008E6F5D /* BeerModel.swift in Sources */,
 				D24AADA22A92C876008E6F5D /* BeerListViewModel.swift in Sources */,
 			);
