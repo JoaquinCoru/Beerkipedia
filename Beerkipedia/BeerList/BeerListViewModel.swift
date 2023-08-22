@@ -42,7 +42,8 @@ final class BeerListViewModel: ObservableObject {
             } else {
                 self?.beerList.append(contentsOf: result)
             }
-                
+            
+            print("Count \(self?.beerList.count)")
         }
         .store(in: &suscriptors)
 

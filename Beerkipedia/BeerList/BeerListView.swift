@@ -12,6 +12,9 @@ struct BeerListView: View {
     
     @State private var foodFilter: String = ""
     
+    @State var currentPage: Int = 1
+    
+    
     var body: some View {
         NavigationStack{
             
@@ -19,12 +22,23 @@ struct BeerListView: View {
                 List{
                     ForEach(viewModel.beerList) { beer in
                         NavigationLink {
-                            Text(beer.description)
+                            BeerDetailView(beer: beer)
                         } label: {
                             BeerRowView(beer: beer)
                         }
                         
                     }
+                    
+                    Text("End of page").onAppear(perform:{
+                        
+                        if foodFilter == "" {
+                            viewModel.getBeers(page: currentPage)
+                        } else {
+                            viewModel.getBeers(foodName: foodFilter, page: currentPage)
+                        }
+                        currentPage += 1
+
+                    })
                 }
                 .navigationTitle("Beers")
                 .navigationBarTitleDisplayMode(.inline)
@@ -51,7 +65,6 @@ struct BeerListView: View {
                 viewModel.getBeers()
             }
             .alert(isPresented: $viewModel.hasError) {
-                
                 return Alert(title: Text("Alerta"),
                              message: Text("Error de red") )
             }
