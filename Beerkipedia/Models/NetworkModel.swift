@@ -22,7 +22,11 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-final class NetworkModel {
+protocol NetworkModelProtocol {
+    func getBeers(foodName: String?, page: Int) -> AnyPublisher<[BeerModel], Error>
+}
+
+final class NetworkModel: NetworkModelProtocol {
     
     let session: URLSession
     

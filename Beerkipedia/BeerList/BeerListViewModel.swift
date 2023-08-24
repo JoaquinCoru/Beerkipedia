@@ -10,7 +10,7 @@ import Combine
 
 final class BeerListViewModel: ObservableObject {
     
-    private var networkModel: NetworkModel
+    private var networkModel: NetworkModelProtocol
     
     @Published var beerList: [BeerModel] = []
     @Published var isLoading = false
@@ -19,7 +19,7 @@ final class BeerListViewModel: ObservableObject {
     private var suscriptors = Set<AnyCancellable>()
     
     
-    init(networkModel: NetworkModel = NetworkModel()) {
+    init(networkModel: NetworkModelProtocol = NetworkModel()) {
         self.networkModel = networkModel
     }
     
@@ -42,35 +42,9 @@ final class BeerListViewModel: ObservableObject {
             } else {
                 self?.beerList.append(contentsOf: result)
             }
-            
-            print("Count \(self?.beerList.count)")
+
         }
         .store(in: &suscriptors)
-
-        
-        
-//        { [weak self] result, error in
-//
-//            DispatchQueue.main.async {
-//                self?.isLoading = false
-//            }
-//
-//            if let error {
-//                print(error.localizedDescription)
-//            }else {
-//                if page == 1 {
-//                    DispatchQueue.main.async {
-//                        self?.beerList = result
-//                    }
-//
-//                } else {
-//                    DispatchQueue.main.async {
-//                        self?.beerList.append(contentsOf: result)
-//                    }
-//                }
-//            }
-//
-//        }
     }
     
 }
