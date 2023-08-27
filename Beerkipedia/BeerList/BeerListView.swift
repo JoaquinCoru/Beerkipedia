@@ -21,8 +21,7 @@ struct BeerListView: View {
             
             ZStack{
                 VStack{
-                    
-  
+
                     DatePicker("Brewed after", selection: $afterDate,
                                in: ...Date() ,
                                displayedComponents: .date)
