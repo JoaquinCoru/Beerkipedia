@@ -15,4 +15,5 @@ struct BeerModel: Identifiable, Codable {
     let image_url: String?
     let brewers_tips: String
     let food_pairing: [String]
+    let first_brewed: String
 }

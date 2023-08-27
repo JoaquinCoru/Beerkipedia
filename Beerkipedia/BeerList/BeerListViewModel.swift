@@ -23,10 +23,21 @@ final class BeerListViewModel: ObservableObject {
         self.networkModel = networkModel
     }
     
-    func getBeers(foodName: String? = nil, page: Int = 1) {
+    func getBeers(foodName: String = "", page: Int = 1, brewedAfterDate: Date? = nil) {
+        
+        var dateString = ""
+        
+        if let date = brewedAfterDate {
+            
+            if (date.convertFromDateToFormattedString() != Date.now.convertFromDateToFormattedString()) {
+                dateString = date.convertFromDateToFormattedString()
+            }
+            
+            print("Formatted date \(dateString)")
+        }
         
         isLoading = true
-        networkModel.getBeers(foodName: foodName, page: page).sink { completion in
+        networkModel.getBeers(foodName: foodName, page: page, afterBrewedDate: dateString).sink { completion in
             switch completion {
                 
             case .finished:

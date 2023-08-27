@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D22DD5E52A981200000530FE /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22DD5E42A981200000530FE /* DateUtils.swift */; };
 		D235C5C42A96C3830011D744 /* MockNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D235C5C32A96C3830011D744 /* MockNetworkModel.swift */; };
 		D235C5C62A96C4FD0011D744 /* BeerListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D235C5C52A96C4FD0011D744 /* BeerListViewModelTests.swift */; };
 		D237D8962A940E9600CE2B57 /* BeerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D237D8952A940E9600CE2B57 /* BeerDetailView.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D22DD5E42A981200000530FE /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		D235C5C32A96C3830011D744 /* MockNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkModel.swift; sourceTree = "<group>"; };
 		D235C5C52A96C4FD0011D744 /* BeerListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewModelTests.swift; sourceTree = "<group>"; };
 		D237D8952A940E9600CE2B57 /* BeerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D22DD5E32A9811D7000530FE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D22DD5E42A981200000530FE /* DateUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D24AAD652A92C751008E6F5D = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 				D24AAD752A92C751008E6F5D /* Assets.xcassets */,
 				D24AADA02A92C85A008E6F5D /* BeerList */,
 				D24AADA52A92D69A008E6F5D /* Detail */,
+				D22DD5E32A9811D7000530FE /* Utils */,
 				D24AAD772A92C751008E6F5D /* Preview Content */,
 			);
 			path = Beerkipedia;
@@ -185,6 +196,8 @@
 			dependencies = (
 			);
 			name = Beerkipedia;
+			packageProductDependencies = (
+			);
 			productName = Beerkipedia;
 			productReference = D24AAD6E2A92C751008E6F5D /* Beerkipedia.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +270,8 @@
 				Base,
 			);
 			mainGroup = D24AAD652A92C751008E6F5D;
+			packageReferences = (
+			);
 			productRefGroup = D24AAD6F2A92C751008E6F5D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -300,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D24AAD9F2A92C83A008E6F5D /* NetworkModel.swift in Sources */,
+				D22DD5E52A981200000530FE /* DateUtils.swift in Sources */,
 				D24AAD722A92C751008E6F5D /* BeerkipediaApp.swift in Sources */,
 				D24AADA42A92CA90008E6F5D /* BeerRowView.swift in Sources */,
 				D2E4E14E2A93DB8A0088C077 /* BeerListView.swift in Sources */,

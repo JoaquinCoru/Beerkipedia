@@ -21,12 +21,15 @@ struct BeerListView: View {
             
             ZStack{
                 VStack{
+                    
+  
                     DatePicker("Brewed after", selection: $afterDate,
+                               in: ...Date() ,
                                displayedComponents: .date)
                     .padding([.horizontal],15)
                     .padding([.top], 2)
 
-                    if (viewModel.beerList.isEmpty){
+                    if (viewModel.beerList.isEmpty && !viewModel.isLoading){
                         Spacer()
                         Text("No results found")
                             .bold()
@@ -48,19 +51,16 @@ struct BeerListView: View {
                                 .font(.italic(.body)())
                                 .onAppear(perform:{
                                     
-                                    if foodFilter == "" {
-                                        viewModel.getBeers(page: currentPage)
-                                    } else {
-                                        viewModel.getBeers(foodName: foodFilter, page: currentPage)
-                                    }
+                                    viewModel.getBeers(foodName: foodFilter, page: currentPage, brewedAfterDate: afterDate)
+                                    
                                     currentPage += 1
                                     
                                 })
                         }
                     }
-
+                    
                 }
-
+                
                 if (viewModel.isLoading){
                     ProgressView()
                         .scaleEffect(1.5)
@@ -72,23 +72,23 @@ struct BeerListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button("Clear Filters"){
-                    print("Applying filters")
+                    foodFilter = ""
+                    afterDate = Date.now
                 }
             }
-
+            
         }
         .searchable(text: $foodFilter, prompt: "Search by food name...")
         .onChange(of: foodFilter, perform: { newValue in
             
-            if newValue != "" {
-                viewModel.getBeers(foodName: newValue)
-            } else {
-                viewModel.getBeers()
-            }
+            viewModel.getBeers(foodName: newValue, brewedAfterDate: afterDate)
             
         })
         .onChange(of: afterDate) { newValue in
-            print(newValue)
+            
+            viewModel.getBeers(
+                foodName: foodFilter, brewedAfterDate: newValue
+            )
         }
         .onAppear {
             viewModel.getBeers()

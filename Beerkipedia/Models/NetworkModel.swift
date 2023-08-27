@@ -23,7 +23,7 @@ enum HTTPMethod: String {
 }
 
 protocol NetworkModelProtocol {
-    func getBeers(foodName: String?, page: Int) -> AnyPublisher<[BeerModel], Error>
+    func getBeers(foodName: String, page: Int, afterBrewedDate: String) -> AnyPublisher<[BeerModel], Error>
 }
 
 final class NetworkModel: NetworkModelProtocol {
@@ -34,12 +34,16 @@ final class NetworkModel: NetworkModelProtocol {
         self.session = session
     }
     
-    func getBeers(foodName: String? = nil, page: Int) -> AnyPublisher<[BeerModel], Error> {
+    func getBeers(foodName: String = "", page: Int, afterBrewedDate: String = "") -> AnyPublisher<[BeerModel], Error> {
         
         var parameters: [String: String] = ["page": String(describing: page)]
         
-        if let foodName {
+        if  !foodName.isEmpty {
             parameters["food"] = foodName
+        }
+        
+        if !afterBrewedDate.isEmpty {
+            parameters["brewed_after"] = afterBrewedDate
         }
         
         let resultPublisher: AnyPublisher<[BeerModel], Error> = performRequestWithCombine("https://api.punkapi.com/v2/beers", httpMethod: .get, parameters: parameters)
@@ -63,6 +67,8 @@ private extension NetworkModel{
         guard let url = (urlComponents?.url) else {
             return Fail(error: NetworkError.malformedURL).eraseToAnyPublisher()
         }
+        
+        print("URL \(url.absoluteString)")
         
         return session.dataTaskPublisher(for: url)
             .tryMap{ guard let response = $0.response as? HTTPURLResponse, response.statusCode == 200 else{

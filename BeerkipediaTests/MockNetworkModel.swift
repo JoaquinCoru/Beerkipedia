@@ -14,7 +14,7 @@ class MockNetworkModel: NetworkModelProtocol {
     
     var fetchDataResult: [BeerModel]?
     
-    func getBeers(foodName: String?, page: Int) -> AnyPublisher<[Beerkipedia.BeerModel], Error> {
+    func getBeers(foodName: String = "", page: Int, afterBrewedDate: String = "") -> AnyPublisher<[Beerkipedia.BeerModel], Error> {
         if let result = fetchDataResult {
             return Just(result)
                 .setFailureType(to: Error.self)

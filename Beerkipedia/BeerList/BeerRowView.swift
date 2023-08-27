@@ -47,7 +47,8 @@ struct BeerRowView_Previews: PreviewProvider {
                                         "Spicy chicken tikka masala",
                                         "Grilled chicken quesadilla",
                                         "Caramel toffee cake"
-                                    ]
+                                    ],
+                                    first_brewed: "09/2007"
                                    )
                     
         )

@@ -66,6 +66,18 @@ struct BeerDetailView: View {
                     .frame(maxWidth: .infinity ,alignment: .leading)
                     .padding([.top], 0.1)
                 
+                HStack{
+                    Text("First brewed: ")
+                        .italic()
+                        .bold()
+                        .padding([.top], 1)
+                    
+                    Text(beer.first_brewed)
+                    
+                    Spacer()
+                }
+
+                
                 Spacer()
                 
             } //End of VStack
@@ -83,7 +95,8 @@ struct BeerDetailView_Previews: PreviewProvider {
                                         "Spicy chicken tikka masala",
                                         "Grilled chicken quesadilla",
                                         "Caramel toffee cake"
-                                       ]
+                                       ],
+                                       first_brewed: "09/2007"
                                       )
         )
         
