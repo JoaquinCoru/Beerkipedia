@@ -68,7 +68,6 @@ private extension NetworkModel{
             return Fail(error: NetworkError.malformedURL).eraseToAnyPublisher()
         }
         
-        print("URL \(url.absoluteString)")
         
         return session.dataTaskPublisher(for: url)
             .tryMap{ guard let response = $0.response as? HTTPURLResponse, response.statusCode == 200 else{

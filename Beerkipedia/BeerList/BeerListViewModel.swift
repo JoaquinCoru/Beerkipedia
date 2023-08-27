@@ -33,7 +33,6 @@ final class BeerListViewModel: ObservableObject {
                 dateString = date.convertFromDateToFormattedString()
             }
             
-            print("Formatted date \(dateString)")
         }
         
         isLoading = true
